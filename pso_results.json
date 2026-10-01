@@ -1,0 +1,356 @@
+{
+  "pso_uavs": [
+    {
+      "lat": 16.019901,
+      "lon": 108.213206,
+      "alt_km": 0.0803,
+      "throughput_mbps": 346.29,
+      "capacity_mbps": 601.79,
+      "load": 0.575,
+      "delay_ms": 16.46,
+      "footprint_km": 0.366,
+      "uav_id": "PSO-UAV-1",
+      "scenario_id": 1,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.02596,
+      "lon": 108.218634,
+      "alt_km": 0.0596,
+      "throughput_mbps": 214.62,
+      "capacity_mbps": 322.5,
+      "load": 0.665,
+      "delay_ms": 16.505,
+      "footprint_km": 2.388,
+      "uav_id": "PSO-UAV-2",
+      "scenario_id": 1,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.03211,
+      "lon": 108.228256,
+      "alt_km": 0.0519,
+      "throughput_mbps": 180.63,
+      "capacity_mbps": 636.2,
+      "load": 0.284,
+      "delay_ms": 16.113,
+      "footprint_km": 0.831,
+      "uav_id": "PSO-UAV-1",
+      "scenario_id": 2,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.015672,
+      "lon": 108.223928,
+      "alt_km": 0.0454,
+      "throughput_mbps": 198.5,
+      "capacity_mbps": 419.42,
+      "load": 0.473,
+      "delay_ms": 16.308,
+      "footprint_km": 2.036,
+      "uav_id": "PSO-UAV-2",
+      "scenario_id": 2,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.012682,
+      "lon": 108.213594,
+      "alt_km": 0.0665,
+      "throughput_mbps": 243.77,
+      "capacity_mbps": 500.07,
+      "load": 0.487,
+      "delay_ms": 17.195,
+      "footprint_km": 1.404,
+      "uav_id": "PSO-UAV-1",
+      "scenario_id": 3,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.013125,
+      "lon": 108.239201,
+      "alt_km": 0.0912,
+      "throughput_mbps": 327.71,
+      "capacity_mbps": 508.5,
+      "load": 0.644,
+      "delay_ms": 17.246,
+      "footprint_km": 1.453,
+      "uav_id": "PSO-UAV-2",
+      "scenario_id": 3,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.01363,
+      "lon": 108.202392,
+      "alt_km": 0.0535,
+      "throughput_mbps": 286.12,
+      "capacity_mbps": 599.54,
+      "load": 0.477,
+      "delay_ms": 16.126,
+      "footprint_km": 0.86,
+      "uav_id": "PSO-UAV-1",
+      "scenario_id": 4,
+      "mode": "binh_thuong"
+    },
+    {
+      "lat": 16.0278,
+      "lon": 108.221891,
+      "alt_km": 0.045,
+      "throughput_mbps": 216.06,
+      "capacity_mbps": 491.62,
+      "load": 0.439,
+      "delay_ms": 16.356,
+      "footprint_km": 1.49,
+      "uav_id": "PSO-UAV-2",
+      "scenario_id": 4,
+      "mode": "binh_thuong"
+    }
+  ],
+  "vessel_groups": [
+    {
+      "scenario": 1,
+      "mode": "binh_thuong",
+      "vessels": [
+        {
+          "lat": 16.018643,
+          "lon": 108.215997
+        },
+        {
+          "lat": 16.027289,
+          "lon": 108.232996
+        },
+        {
+          "lat": 16.019532,
+          "lon": 108.214132
+        },
+        {
+          "lat": 16.021471,
+          "lon": 108.213809
+        },
+        {
+          "lat": 16.028871,
+          "lon": 108.239942
+        },
+        {
+          "lat": 16.019385,
+          "lon": 108.211309
+        },
+        {
+          "lat": 16.018284,
+          "lon": 108.214358
+        },
+        {
+          "lat": 16.030758,
+          "lon": 108.233846
+        },
+        {
+          "lat": 16.018213,
+          "lon": 108.210465
+        },
+        {
+          "lat": 16.029465,
+          "lon": 108.236162
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "mode": "binh_thuong",
+      "vessels": [
+        {
+          "lat": 16.021968,
+          "lon": 108.226
+        },
+        {
+          "lat": 16.024838,
+          "lon": 108.226522
+        },
+        {
+          "lat": 16.014303,
+          "lon": 108.206044
+        },
+        {
+          "lat": 16.033763,
+          "lon": 108.226541
+        },
+        {
+          "lat": 16.033307,
+          "lon": 108.225588
+        },
+        {
+          "lat": 16.023472,
+          "lon": 108.223624
+        },
+        {
+          "lat": 16.012226,
+          "lon": 108.206931
+        },
+        {
+          "lat": 16.014189,
+          "lon": 108.205649
+        },
+        {
+          "lat": 16.033371,
+          "lon": 108.228584
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "mode": "binh_thuong",
+      "vessels": [
+        {
+          "lat": 16.014883,
+          "lon": 108.222611
+        },
+        {
+          "lat": 16.011359,
+          "lon": 108.235968
+        },
+        {
+          "lat": 16.019203,
+          "lon": 108.227634
+        },
+        {
+          "lat": 16.011839,
+          "lon": 108.239328
+        },
+        {
+          "lat": 16.007662,
+          "lon": 108.233644
+        },
+        {
+          "lat": 16.013026,
+          "lon": 108.224324
+        },
+        {
+          "lat": 16.011809,
+          "lon": 108.227094
+        },
+        {
+          "lat": 16.010274,
+          "lon": 108.231398
+        },
+        {
+          "lat": 16.012785,
+          "lon": 108.226225
+        },
+        {
+          "lat": 16.01314,
+          "lon": 108.24077
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "mode": "binh_thuong",
+      "vessels": [
+        {
+          "lat": 16.034297,
+          "lon": 108.231861
+        },
+        {
+          "lat": 16.035612,
+          "lon": 108.232401
+        },
+        {
+          "lat": 16.009488,
+          "lon": 108.202399
+        },
+        {
+          "lat": 16.013267,
+          "lon": 108.210121
+        },
+        {
+          "lat": 16.034839,
+          "lon": 108.23331
+        },
+        {
+          "lat": 16.025272,
+          "lon": 108.221401
+        },
+        {
+          "lat": 16.013393,
+          "lon": 108.204742
+        },
+        {
+          "lat": 16.027489,
+          "lon": 108.21903
+        },
+        {
+          "lat": 16.02865,
+          "lon": 108.218366
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": 1,
+      "mode": "binh_thuong",
+      "n_vessels": 10,
+      "total_demand_mbps": 560.9,
+      "total_rate_mbps": 560.9,
+      "satisfaction_pct": 100.0,
+      "avg_delay_ms": 16.48,
+      "fixed_qos": 100.0,
+      "fixed_dly": 17.23,
+      "delay_breakdown": {
+        "prop_ms": 0.003,
+        "queue_ms": 0.475,
+        "backhaul_ms": 15.0,
+        "proc_ms": 1.0
+      }
+    },
+    {
+      "id": 2,
+      "mode": "dong_duc",
+      "n_vessels": 26,
+      "total_demand_mbps": 3347.15,
+      "total_rate_mbps": 987.09,
+      "satisfaction_pct": 3.85,
+      "avg_delay_ms": 197.35,
+      "fixed_qos": 0.0,
+      "fixed_dly": 251.32,
+      "delay_breakdown": {
+        "prop_ms": 0.002,
+        "queue_ms": 181.348,
+        "backhaul_ms": 15.0,
+        "proc_ms": 1.0
+      }
+    },
+    {
+      "id": 3,
+      "mode": "bao_to",
+      "n_vessels": 3,
+      "total_demand_mbps": 949.96,
+      "total_rate_mbps": 683.57,
+      "satisfaction_pct": 0.0,
+      "avg_delay_ms": 87.93,
+      "fixed_qos": 0.0,
+      "fixed_dly": 78.52,
+      "delay_breakdown": {
+        "prop_ms": 0.003,
+        "queue_ms": 71.93,
+        "backhaul_ms": 15.0,
+        "proc_ms": 1.0
+      }
+    },
+    {
+      "id": 4,
+      "mode": "dem_vang",
+      "n_vessels": 3,
+      "total_demand_mbps": 54.94,
+      "total_rate_mbps": 54.94,
+      "satisfaction_pct": 100.0,
+      "avg_delay_ms": 16.05,
+      "fixed_qos": 100.0,
+      "fixed_dly": 16.05,
+      "delay_breakdown": {
+        "prop_ms": 0.004,
+        "queue_ms": 0.043,
+        "backhaul_ms": 15.0,
+        "proc_ms": 1.0
+      }
+    }
+  ]
+}

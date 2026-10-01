@@ -1,0 +1,194 @@
+
+────────────────────────────────────────────────────────────
+  DEBUG: 10 kịch bản/mode – kiểm tra tính nhất quán
+────────────────────────────────────────────────────────────
+  binh_thuong   : vessels  5–10 (mean=8.4)  demand  224.7– 571.5 Mbps
+  dong_duc      : vessels 11–23 (mean=19.0)  demand 1067.4–3600.0 Mbps
+  bao_to        : vessels  3– 8 (mean=4.8)  demand  749.7–1913.8 Mbps
+  dem_vang      : vessels  1– 4 (mean=2.4)  demand   10.6–  69.1 Mbps
+────────────────────────────────────────────────────────────
+  [Config] BW=100.0 MHz, UAVs=2, Area=5.0 km
+
+══════════════════════════════════════════════════════════════════════
+  SAGIN Resource Optimization Pipeline  (n_reps=30/mode)
+  GenAI + QL-MOPSO + Water-Filling vs 3 Baselines
+══════════════════════════════════════════════════════════════════════
+
+── Mode: BINH_THUONG ──
+  [  1] binh_thuong  V=10  Demand=  560.9Mbps | RL: QoS=100.0%  Dly= 16.48ms | Fixed: QoS=100.0%  Dly= 17.23ms
+  [  2] binh_thuong  V= 9  Demand=  379.1Mbps | RL: QoS=100.0%  Dly= 16.22ms | Fixed: QoS=100.0%  Dly= 16.27ms
+  [  3] binh_thuong  V=10  Demand=  571.5Mbps | RL: QoS=100.0%  Dly= 17.23ms | Fixed: QoS= 80.0%  Dly= 29.46ms
+  [  4] binh_thuong  V= 9  Demand=  502.2Mbps | RL: QoS=100.0%  Dly= 16.28ms | Fixed: QoS=100.0%  Dly= 16.62ms
+  [  5] binh_thuong  V= 5  Demand=  224.7Mbps | RL: QoS=100.0%  Dly= 16.08ms | Fixed: QoS=100.0%  Dly= 16.08ms
+  [  6] binh_thuong  V= 8  Demand=  364.9Mbps | RL: QoS=100.0%  Dly= 16.18ms | Fixed: QoS=100.0%  Dly= 16.18ms
+  [  7] binh_thuong  V= 7  Demand=  331.3Mbps | RL: QoS=100.0%  Dly= 16.11ms | Fixed: QoS=100.0%  Dly= 16.10ms
+  [  8] binh_thuong  V= 7  Demand=  349.2Mbps | RL: QoS=100.0%  Dly= 16.13ms | Fixed: QoS=100.0%  Dly= 16.26ms
+  [  9] binh_thuong  V= 9  Demand=  557.4Mbps | RL: QoS=100.0%  Dly= 16.68ms | Fixed: QoS= 77.8%  Dly= 41.23ms
+  [ 10] binh_thuong  V=10  Demand=  502.7Mbps | RL: QoS=100.0%  Dly= 16.26ms | Fixed: QoS= 90.0%  Dly= 21.83ms
+  [ 11] binh_thuong  V= 8  Demand=  482.8Mbps | RL: QoS=100.0%  Dly= 16.20ms | Fixed: QoS=100.0%  Dly= 16.23ms
+  [ 12] binh_thuong  V=15  Demand=  669.2Mbps | RL: QoS= 73.3%  Dly= 33.58ms | Fixed: QoS= 66.7%  Dly= 43.61ms
+  [ 13] binh_thuong  V=13  Demand=  651.8Mbps | RL: QoS= 76.9%  Dly= 30.53ms | Fixed: QoS= 53.8%  Dly= 46.24ms
+  [ 14] binh_thuong  V= 9  Demand=  532.7Mbps | RL: QoS= 88.9%  Dly= 22.60ms | Fixed: QoS= 88.9%  Dly= 22.29ms
+  [ 15] binh_thuong  V=12  Demand=  593.1Mbps | RL: QoS= 83.3%  Dly= 25.61ms | Fixed: QoS= 91.7%  Dly= 24.24ms
+  [ 16] binh_thuong  V= 9  Demand=  586.6Mbps | RL: QoS=100.0%  Dly= 16.51ms | Fixed: QoS= 55.6%  Dly= 42.59ms
+  [ 17] binh_thuong  V= 2  Demand=   78.7Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [ 18] binh_thuong  V= 7  Demand=  329.1Mbps | RL: QoS=100.0%  Dly= 16.09ms | Fixed: QoS=100.0%  Dly= 16.11ms
+  [ 19] binh_thuong  V= 8  Demand=  409.3Mbps | RL: QoS=100.0%  Dly= 16.15ms | Fixed: QoS=100.0%  Dly= 16.17ms
+  [ 20] binh_thuong  V= 7  Demand=  314.6Mbps | RL: QoS=100.0%  Dly= 16.10ms | Fixed: QoS=100.0%  Dly= 16.13ms
+  [ 21] binh_thuong  V= 9  Demand=  565.6Mbps | RL: QoS=100.0%  Dly= 16.36ms | Fixed: QoS=100.0%  Dly= 16.42ms
+  [ 22] binh_thuong  V=11  Demand=  712.3Mbps | RL: QoS= 81.8%  Dly= 25.91ms | Fixed: QoS= 72.7%  Dly= 30.59ms
+  [ 23] binh_thuong  V= 6  Demand=  332.1Mbps | RL: QoS=100.0%  Dly= 16.11ms | Fixed: QoS=100.0%  Dly= 16.12ms
+  [ 24] binh_thuong  V= 9  Demand=  560.4Mbps | RL: QoS= 88.9%  Dly= 22.14ms | Fixed: QoS= 88.9%  Dly= 23.71ms
+  [ 25] binh_thuong  V= 6  Demand=  357.6Mbps | RL: QoS=100.0%  Dly= 16.13ms | Fixed: QoS=100.0%  Dly= 16.19ms
+  [ 26] binh_thuong  V= 6  Demand=  282.2Mbps | RL: QoS=100.0%  Dly= 16.10ms | Fixed: QoS=100.0%  Dly= 16.10ms
+  [ 27] binh_thuong  V=11  Demand=  622.6Mbps | RL: QoS= 90.9%  Dly= 23.27ms | Fixed: QoS= 81.8%  Dly= 27.19ms
+  [ 28] binh_thuong  V= 6  Demand=  258.7Mbps | RL: QoS=100.0%  Dly= 16.10ms | Fixed: QoS=100.0%  Dly= 16.16ms
+  [ 29] binh_thuong  V= 7  Demand=  435.7Mbps | RL: QoS=100.0%  Dly= 16.13ms | Fixed: QoS=100.0%  Dly= 16.32ms
+  [ 30] binh_thuong  V= 4  Demand=  130.5Mbps | RL: QoS=100.0%  Dly= 16.05ms | Fixed: QoS=100.0%  Dly= 16.07ms
+
+── Mode: DONG_DUC ──
+  [ 31] dong_duc     V=26  Demand= 3347.2Mbps | RL: QoS=  3.8%  Dly=197.35ms | Fixed: QoS=  0.0%  Dly=251.32ms
+  [ 32] dong_duc     V=16  Demand= 2381.9Mbps | RL: QoS=  0.0%  Dly=158.36ms | Fixed: QoS=  0.0%  Dly=168.50ms
+  [ 33] dong_duc     V=19  Demand= 2381.8Mbps | RL: QoS= 10.5%  Dly=135.42ms | Fixed: QoS=  5.3%  Dly=153.46ms
+  [ 34] dong_duc     V=26  Demand= 3588.6Mbps | RL: QoS=  0.0%  Dly=227.20ms | Fixed: QoS=  0.0%  Dly=291.95ms
+  [ 35] dong_duc     V=19  Demand= 2293.1Mbps | RL: QoS= 10.5%  Dly=136.72ms | Fixed: QoS=  0.0%  Dly=164.82ms
+  [ 36] dong_duc     V=26  Demand= 2963.6Mbps | RL: QoS=  3.8%  Dly=188.13ms | Fixed: QoS=  0.0%  Dly=251.27ms
+  [ 37] dong_duc     V=20  Demand= 2535.1Mbps | RL: QoS=  0.0%  Dly=159.73ms | Fixed: QoS=  5.0%  Dly=220.60ms
+  [ 38] dong_duc     V=22  Demand= 2628.9Mbps | RL: QoS=  0.0%  Dly=174.69ms | Fixed: QoS=  0.0%  Dly=224.46ms
+  [ 39] dong_duc     V=17  Demand= 2007.8Mbps | RL: QoS=  0.0%  Dly=154.00ms | Fixed: QoS= 11.8%  Dly=152.37ms
+  [ 40] dong_duc     V=17  Demand= 2196.0Mbps | RL: QoS= 11.8%  Dly=123.47ms | Fixed: QoS=  0.0%  Dly=138.05ms
+  [ 41] dong_duc     V=24  Demand= 3002.0Mbps | RL: QoS=  0.0%  Dly=179.37ms | Fixed: QoS=  0.0%  Dly=216.29ms
+  [ 42] dong_duc     V=15  Demand= 1733.1Mbps | RL: QoS= 13.3%  Dly= 95.44ms | Fixed: QoS= 13.3%  Dly=106.38ms
+  [ 43] dong_duc     V=19  Demand= 2803.7Mbps | RL: QoS=  0.0%  Dly=198.65ms | Fixed: QoS=  5.3%  Dly=227.75ms
+  [ 44] dong_duc     V=16  Demand= 1783.2Mbps | RL: QoS= 12.5%  Dly=114.92ms | Fixed: QoS=  0.0%  Dly=152.78ms
+  [ 45] dong_duc     V=10  Demand= 1490.8Mbps | RL: QoS= 50.0%  Dly= 63.12ms | Fixed: QoS= 40.0%  Dly= 65.36ms
+  [ 46] dong_duc     V=24  Demand= 3661.8Mbps | RL: QoS=  0.0%  Dly=237.30ms | Fixed: QoS=  0.0%  Dly=288.31ms
+  [ 47] dong_duc     V=18  Demand= 2614.4Mbps | RL: QoS=  0.0%  Dly=161.03ms | Fixed: QoS=  0.0%  Dly=198.49ms
+  [ 48] dong_duc     V=21  Demand= 2574.3Mbps | RL: QoS=  4.8%  Dly=151.68ms | Fixed: QoS=  4.8%  Dly=167.62ms
+  [ 49] dong_duc     V=15  Demand= 2032.3Mbps | RL: QoS= 13.3%  Dly=112.73ms | Fixed: QoS= 13.3%  Dly=160.59ms
+  [ 50] dong_duc     V=21  Demand= 2511.6Mbps | RL: QoS=  0.0%  Dly=150.45ms | Fixed: QoS=  0.0%  Dly=170.01ms
+  [ 51] dong_duc     V=16  Demand= 1816.7Mbps | RL: QoS= 12.5%  Dly=120.22ms | Fixed: QoS=  6.2%  Dly=130.68ms
+  [ 52] dong_duc     V=15  Demand= 1965.8Mbps | RL: QoS=  6.7%  Dly=116.56ms | Fixed: QoS= 13.3%  Dly=143.23ms
+  [ 53] dong_duc     V=23  Demand= 3039.7Mbps | RL: QoS=  0.0%  Dly=179.54ms | Fixed: QoS=  0.0%  Dly=232.57ms
+  [ 54] dong_duc     V=22  Demand= 3194.7Mbps | RL: QoS=  0.0%  Dly=208.19ms | Fixed: QoS=  0.0%  Dly=222.53ms
+  [ 55] dong_duc     V=17  Demand= 2029.2Mbps | RL: QoS= 17.6%  Dly=106.71ms | Fixed: QoS=  0.0%  Dly=128.71ms
+  [ 56] dong_duc     V=21  Demand= 2651.5Mbps | RL: QoS=  0.0%  Dly=153.44ms | Fixed: QoS=  0.0%  Dly=150.03ms
+  [ 57] dong_duc     V=18  Demand= 2264.7Mbps | RL: QoS=  5.6%  Dly=131.03ms | Fixed: QoS=  0.0%  Dly=153.85ms
+  [ 58] dong_duc     V=22  Demand= 2562.2Mbps | RL: QoS=  4.5%  Dly=136.82ms | Fixed: QoS=  4.5%  Dly=133.92ms
+  [ 59] dong_duc     V=18  Demand= 2500.6Mbps | RL: QoS=  0.0%  Dly=162.84ms | Fixed: QoS=  0.0%  Dly=172.35ms
+  [ 60] dong_duc     V=24  Demand= 3169.0Mbps | RL: QoS=  0.0%  Dly=190.48ms | Fixed: QoS=  0.0%  Dly=203.85ms
+
+── Mode: BAO_TO ──
+  [ 61] bao_to       V= 3  Demand=  950.0Mbps | RL: QoS=  0.0%  Dly= 87.93ms | Fixed: QoS=  0.0%  Dly= 78.52ms
+  [ 62] bao_to       V= 3  Demand=  840.2Mbps | RL: QoS=  0.0%  Dly= 79.17ms | Fixed: QoS= 33.3%  Dly= 82.77ms
+  [ 63] bao_to       V= 5  Demand= 1023.7Mbps | RL: QoS=  0.0%  Dly=139.57ms | Fixed: QoS=  0.0%  Dly=119.43ms
+  [ 64] bao_to       V=15  Demand= 3030.0Mbps | RL: QoS=  0.0%  Dly=352.83ms | Fixed: QoS=  0.0%  Dly=369.06ms
+  [ 65] bao_to       V= 7  Demand= 1412.0Mbps | RL: QoS=  0.0%  Dly=133.64ms | Fixed: QoS=  0.0%  Dly=263.34ms
+  [ 66] bao_to       V= 2  Demand=  578.7Mbps | RL: QoS= 50.0%  Dly= 49.33ms | Fixed: QoS=100.0%  Dly= 16.12ms
+  [ 67] bao_to       V= 2  Demand=  888.9Mbps | RL: QoS= 50.0%  Dly= 67.91ms | Fixed: QoS=  0.0%  Dly=177.62ms
+  [ 68] bao_to       V= 4  Demand=  875.2Mbps | RL: QoS= 50.0%  Dly= 60.67ms | Fixed: QoS= 25.0%  Dly= 79.08ms
+  [ 69] bao_to       V= 3  Demand=  499.7Mbps | RL: QoS=100.0%  Dly= 16.12ms | Fixed: QoS= 33.3%  Dly=202.95ms
+  [ 70] bao_to       V= 5  Demand=  856.6Mbps | RL: QoS=  0.0%  Dly= 86.60ms | Fixed: QoS= 40.0%  Dly= 80.66ms
+  [ 71] bao_to       V= 2  Demand=  329.5Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.13ms
+  [ 72] bao_to       V= 8  Demand= 1899.9Mbps | RL: QoS=  0.0%  Dly=249.63ms | Fixed: QoS=  0.0%  Dly=232.75ms
+  [ 73] bao_to       V= 6  Demand= 1315.7Mbps | RL: QoS= 16.7%  Dly=112.59ms | Fixed: QoS=  0.0%  Dly=173.03ms
+  [ 74] bao_to       V= 2  Demand=  302.0Mbps | RL: QoS=100.0%  Dly= 16.03ms | Fixed: QoS=100.0%  Dly= 16.05ms
+  [ 75] bao_to       V= 6  Demand= 1098.2Mbps | RL: QoS= 16.7%  Dly=186.84ms | Fixed: QoS=  0.0%  Dly=182.21ms
+  [ 76] bao_to       V= 2  Demand=  329.7Mbps | RL: QoS=100.0%  Dly= 16.04ms | Fixed: QoS=100.0%  Dly= 16.07ms
+  [ 77] bao_to       V= 3  Demand=  628.1Mbps | RL: QoS= 66.7%  Dly= 79.97ms | Fixed: QoS= 33.3%  Dly= 85.99ms
+  [ 78] bao_to       V= 1  Demand=  131.5Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.03ms
+  [ 79] bao_to       V= 5  Demand=  986.6Mbps | RL: QoS= 20.0%  Dly= 93.90ms | Fixed: QoS=  0.0%  Dly=204.71ms
+  [ 80] bao_to       V= 9  Demand= 1925.0Mbps | RL: QoS=  0.0%  Dly=213.64ms | Fixed: QoS=  0.0%  Dly=229.47ms
+  [ 81] bao_to       V= 6  Demand= 1105.4Mbps | RL: QoS=  0.0%  Dly=179.15ms | Fixed: QoS=  0.0%  Dly=118.84ms
+  [ 82] bao_to       V= 5  Demand= 1056.2Mbps | RL: QoS= 20.0%  Dly=101.14ms | Fixed: QoS= 20.0%  Dly=143.02ms
+  [ 83] bao_to       V= 7  Demand= 1701.9Mbps | RL: QoS=  0.0%  Dly=186.70ms | Fixed: QoS=  0.0%  Dly=249.47ms
+  [ 84] bao_to       V= 2  Demand=  346.7Mbps | RL: QoS=100.0%  Dly= 16.03ms | Fixed: QoS= 50.0%  Dly=104.71ms
+  [ 85] bao_to       V= 2  Demand=  515.2Mbps | RL: QoS=100.0%  Dly= 16.06ms | Fixed: QoS=100.0%  Dly= 16.14ms
+  [ 86] bao_to       V= 2  Demand=  451.2Mbps | RL: QoS=100.0%  Dly= 16.07ms | Fixed: QoS=100.0%  Dly= 16.07ms
+  [ 87] bao_to       V= 4  Demand=  963.1Mbps | RL: QoS=  0.0%  Dly=181.46ms | Fixed: QoS=  0.0%  Dly=165.26ms
+  [ 88] bao_to       V= 7  Demand= 1744.5Mbps | RL: QoS= 14.3%  Dly=180.52ms | Fixed: QoS= 14.3%  Dly=150.80ms
+  [ 89] bao_to       V= 5  Demand=  996.5Mbps | RL: QoS=  0.0%  Dly=139.18ms | Fixed: QoS= 20.0%  Dly= 99.33ms
+  [ 90] bao_to       V= 3  Demand=  748.9Mbps | RL: QoS=  0.0%  Dly= 78.98ms | Fixed: QoS= 33.3%  Dly= 66.73ms
+
+── Mode: DEM_VANG ──
+  [ 91] dem_vang     V= 3  Demand=   54.9Mbps | RL: QoS=100.0%  Dly= 16.05ms | Fixed: QoS=100.0%  Dly= 16.05ms
+  [ 92] dem_vang     V= 1  Demand=    8.8Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [ 93] dem_vang     V= 3  Demand=   36.4Mbps | RL: QoS=100.0%  Dly= 16.03ms | Fixed: QoS=100.0%  Dly= 16.04ms
+  [ 94] dem_vang     V= 1  Demand=   11.0Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [ 95] dem_vang     V= 1  Demand=   14.8Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [ 96] dem_vang     V= 2  Demand=   28.9Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.04ms
+  [ 97] dem_vang     V= 3  Demand=   54.7Mbps | RL: QoS=100.0%  Dly= 16.03ms | Fixed: QoS=100.0%  Dly= 16.04ms
+  [ 98] dem_vang     V= 3  Demand=   72.3Mbps | RL: QoS=100.0%  Dly= 16.04ms | Fixed: QoS= 66.7%  Dly= 61.16ms
+  [ 99] dem_vang     V= 3  Demand=   65.3Mbps | RL: QoS=100.0%  Dly= 16.05ms | Fixed: QoS=100.0%  Dly= 16.06ms
+  [100] dem_vang     V= 1  Demand=   19.1Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [101] dem_vang     V= 1  Demand=   19.4Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [102] dem_vang     V= 1  Demand=   10.7Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [103] dem_vang     V= 6  Demand=   91.9Mbps | RL: QoS=100.0%  Dly= 16.09ms | Fixed: QoS=100.0%  Dly= 16.10ms
+  [104] dem_vang     V= 1  Demand=    9.7Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [105] dem_vang     V= 1  Demand=   20.4Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [106] dem_vang     V= 2  Demand=   42.2Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.03ms
+  [107] dem_vang     V= 1  Demand=   12.6Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [108] dem_vang     V= 2  Demand=   43.3Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.03ms
+  [109] dem_vang     V= 1  Demand=   15.1Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [110] dem_vang     V= 2  Demand=   31.8Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.03ms
+  [111] dem_vang     V= 1  Demand=   12.1Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [112] dem_vang     V= 2  Demand=   35.4Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [113] dem_vang     V= 4  Demand=   57.0Mbps | RL: QoS=100.0%  Dly= 16.06ms | Fixed: QoS=100.0%  Dly= 16.08ms
+  [114] dem_vang     V= 1  Demand=   17.7Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [115] dem_vang     V= 2  Demand=   34.0Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [116] dem_vang     V= 2  Demand=   40.0Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.03ms
+  [117] dem_vang     V= 2  Demand=   27.5Mbps | RL: QoS=100.0%  Dly= 16.02ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [118] dem_vang     V= 3  Demand=   40.4Mbps | RL: QoS=100.0%  Dly= 16.04ms | Fixed: QoS=100.0%  Dly= 16.05ms
+  [119] dem_vang     V= 1  Demand=    9.8Mbps | RL: QoS=100.0%  Dly= 16.01ms | Fixed: QoS=100.0%  Dly= 16.02ms
+  [120] dem_vang     V= 3  Demand=   67.3Mbps | RL: QoS=100.0%  Dly= 16.04ms | Fixed: QoS=100.0%  Dly= 16.04ms
+
+──────────────────────────────────────────────────────────────────────
+  TỔNG KẾT (mean ± CI95%, n=30/mode)
+──────────────────────────────────────────────────────────────────────
+
+  [BINH_THUONG]  n=30, mean_vessels=8.3, mean_demand=441.7 Mbps
+    Fixed UAV         : 91.59±4.92  22.06±3.42  425.13±52.28
+    PSO+Even PW       : 97.62±2.17  18.07±1.60  437.22±55.45
+    PSO+Random        : 67.92±13.33  55.07±19.99  353.00±52.72
+    PSO+RL (Ours)     : 96.14±2.77  18.58±1.69  437.00±55.64
+
+  [DONG_DUC]  n=30, mean_vessels=19.6, mean_demand=2524.2 Mbps
+    Fixed UAV         : 4.09±2.92  181.40±18.89  827.46±37.82
+    PSO+Even PW       : 6.88±3.86  155.10±14.02  954.82±24.85
+    PSO+Random        : 5.78±2.45  298.86±46.22  570.35±89.13
+    PSO+RL (Ours)     : 6.05±3.57  154.19±14.19  960.56±24.83
+
+  [BAO_TO]  n=30, mean_vessels=4.5, mean_demand=984.4 Mbps
+    Fixed UAV         : 33.42±14.35  125.75±32.36  466.28±51.92
+    PSO+Even PW       : 36.06±14.43  115.91±34.08  543.38±60.98
+    PSO+Random        : 23.76±13.37  194.92±51.59  362.54±61.17
+    PSO+RL (Ours)     : 36.81±15.28  105.66±29.74  525.97±48.39
+
+  [DEM_VANG]  n=30, mean_vessels=2.0, mean_demand=33.5 Mbps
+    Fixed UAV         : 98.89±2.18  17.54±2.95  32.85±7.56
+    PSO+Even PW       : 100.00  16.02±0.01  33.48±7.88
+    PSO+Random        : 100.00  16.05±0.01  33.48±7.88
+    PSO+RL (Ours)     : 100.00  16.02±0.01  33.48±7.88
+
+  RL vs Fixed (toàn bộ):
+    Delay: RL giảm 15.1% so với Fixed
+    QoS: RL tăng 4.8% so với Fixed
+    TP: RL tăng 11.7% so với Fixed
+══════════════════════════════════════════════════════════════════════
+  📄 genai_resource_results.csv
+  📄 pso_results.json
+
+First rows:
+       mode  n_vessels     rl_qos    rl_dly  fixed_qos  fixed_dly
+binh_thuong         10 100.000000 16.477927 100.000000  17.225222
+binh_thuong          9 100.000000 16.221590 100.000000  16.274375
+binh_thuong         10 100.000000 17.230837  80.000000  29.459472
+binh_thuong          9 100.000000 16.279199 100.000000  16.619332
+binh_thuong          5 100.000000 16.077401 100.000000  16.081505
+binh_thuong          8 100.000000 16.176232 100.000000  16.178520
+binh_thuong          7 100.000000 16.110978 100.000000  16.099174
+binh_thuong          7 100.000000 16.128773 100.000000  16.259899
+binh_thuong          9 100.000000 16.678046  77.777778  41.234579
+binh_thuong         10 100.000000 16.255356  90.000000  21.827257
+binh_thuong          8 100.000000 16.203137 100.000000  16.228601
+binh_thuong         15  73.333333 33.579148  66.666667  43.610581
