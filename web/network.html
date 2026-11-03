@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SAGIN · Tối ưu đường truyền và pin</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/workbench.css">
+</head>
+<body>
+<a class="skip-link" href="#request-form">Đến phần tạo yêu cầu</a>
+<header class="topbar"><a class="brand" href="./network.html"><span>⬡</span> SAGIN <small>NETWORK LAB</small></a><nav aria-label="Điều hướng chính"><a class="nav-active" href="./network.html" aria-current="page">Điều phối mạng</a><a href="./index.html">Trái Đất 3D ↗</a></nav><button id="refresh-state" title="Đọc lại trạng thái mạng" aria-label="Đọc lại trạng thái mạng">↻</button><span id="connection" class="badge" role="status">Đang kết nối…</span></header>
+<main id="workspace">
+  <div class="intro"><div><span class="eyebrow">BĂNG THÔNG · NĂNG LƯỢNG · ĐỊNH TUYẾN</span><h1>Điều phối tài nguyên mạng.</h1><p>Tạo yêu cầu, tìm phương án truyền, rồi xem dữ liệu đi qua mạng.</p></div><div class="clock"><strong id="time">0,00 s</strong><span>Thời gian mô phỏng · 60× khi bật chạy</span><button id="clock-toggle" disabled>▶ Chạy quỹ đạo</button></div></div>
+<div class="workflow"><a id="configure-network" href="#network-settings"><span>01</span> Thiết lập mạng</a><a href="#request-form"><span>02</span> Tìm phương án</a><a href="#execution"><span>03</span> Truyền & theo dõi</a></div>
+  <p id="notice" role="status">Đang đọc trạng thái từ máy chủ Python…</p>
+  <div id="help" hidden class="help">Mở terminal tại thư mục dự án và chạy <code>python server.py</code>, sau đó mở <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>. Live Server chỉ hiển thị trang, không chạy được thuật toán. <button id="reconnect">Kết nối lại</button></div>
+  <div class="workspace">
+    <aside>
+
+<details id="network-settings" class="card network-settings"><summary><span><span class="step">01 / CẤU HÌNH</span><strong>Mạng & tài nguyên</strong><small id="network-summary">Đang tải cấu hình…</small></span><span class="disclosure" aria-hidden="true">⌄</span></summary><form id="network-form" novalidate>
+        <label>Mô hình mạng<select name="size"><option value="small">Nhỏ · 4 trạm</option><option value="full">Toàn cầu · 10 trạm</option></select></label>
+        <p class="hint">Bố trí trạm: <strong>Phân bố rộng</strong></p><label>Chùm vệ tinh<select name="constellation"><option value="compact">Gọn</option><option value="balanced" selected>Cân bằng</option><option value="dense">Tăng phủ</option></select></label>
+        <label>Mức pin ban đầu<select name="battery_profile"><option value="mixed">Yếu / trung bình / mạnh</option><option value="full">Tất cả đầy pin</option><option value="weak">Tất cả pin yếu</option><option value="medium">Tất cả pin trung bình</option><option value="strong">Tất cả pin mạnh</option></select></label><label>Tải băng thông nền<select name="load_profile"><option value="mixed">Có nút rảnh / vừa / bận</option><option value="idle">Tất cả rảnh</option><option value="busy">Tải cao</option></select></label><label>Biến thiên lưu lượng<select name="traffic_pattern"><option value="bursty">Theo đợt gói tin</option><option value="periodic">Có chu kỳ</option><option value="trend">Tăng rồi giảm</option><option value="steady">Không đổi · đối chứng</option></select></label><label>Dự báo tải nền<select name="forecast_load"><option value="on">Bật dự báo để chừa băng thông</option><option value="off">Chỉ dùng tải hiện tại</option></select></label><label>Seed trạng thái<input name="state_seed" type="number" min="0" max="2147483647" value="42" required></label><div class="two"><label>Dung lượng pin UAV (J)<input name="battery_j" type="number" min="1" max="1000000" value="1000" required step="any"></label><label>Pin dự trữ (%)<input name="reserve_percent" type="number" min="0" max="90" value="20" required step="any"></label></div>
+        <details><summary>Điều chỉnh số UAV</summary><label>Số UAV (chẵn, 2–32)<input name="uav_count" type="number" min="2" max="32" step="2" placeholder="Mặc định theo cấu hình"></label></details>
+        <button type="submit" class="secondary">Tạo lại mạng & pin</button></form><p class="hint">Tạo lại mạng sẽ xóa kết quả và lịch sử truyền hiện tại.</p>
+      </details>
+      <section class="card"><span class="step">02 / YÊU CẦU</span><h2>Bạn muốn gửi dữ liệu đi đâu?</h2><form id="request-form" novalidate tabindex="-1">
+        <div class="two"><label>Trạm gửi<select name="source" id="source"></select></label><label>Trạm nhận<select name="target" id="target"></select></label></div>
+        <div class="two"><label>Dữ liệu (MB)<input name="data_mb" type="number" min="0.001" max="10" value="0.1" required step="any"></label><label>Tốc độ cần (Mbps)<input name="required_mbps" type="number" min="0.001" max="50" value="0.2" required step="any"></label></div>
+        <label>Cách tìm đường<select name="method" aria-describedby="method-description"><optgroup label="Tối ưu tài nguyên"><option value="aco">ACO</option><option value="aco_pso">ACO + PSO</option><option value="ai_aco_pso" selected>AI + ACO + PSO</option><option value="widest_pso">Widest + PSO</option><option value="energy_pso">Energy + PSO</option></optgroup><optgroup label="Đối chứng định tuyến"><option value="random">Random</option><option value="greedy">Greedy</option><option value="min_hops">BFS - ít chặng nhất</option><option value="shortest_distance">Dijkstra - khoảng cách</option><option value="min_delay">Dijkstra - độ trễ</option><option value="widest">Widest path</option><option value="energy">Energy path</option></optgroup></select></label>
+        <p id="method-description" class="method-note">ACO tìm tuyến, dùng cấp phát tài nguyên cố định.</p><details><summary>Ưu tiên & ngân sách tìm kiếm</summary>
+          <label>Trọng số tổng năng lượng: <output id="weight-label">0.50</output><input name="energy_weight" type="range" min="0" max="1" value="0.5" step="any"></label><label>Trọng số độ trễ (0: pin; 1: độ trễ)<input name="latency_weight" type="number" min="0" max="1" value="0.5" required step="any"></label><p class="hint">Phần trọng số còn lại ưu tiên tránh tiêu hao tập trung vào một nút yếu pin.</p>
+          <label>Seed (lặp lại kết quả)<input name="seed" type="number" min="0" max="2147483647" step="1" value="42" required></label>
+          <label>Ngân sách tìm kiếm<select name="budget"><option value="standard">Chuẩn · 20 kiến/hạt, 50 vòng</option><option value="half">25 vòng / 20 kiến, hạt (thử nghiệm)</option><option value="quick">Nhanh · 6 kiến / 8 hạt, 8 vòng</option></select></label>
+        </details><button id="optimize" class="primary" type="submit" disabled>✦ Tìm phương án truyền</button>
+      </form><a id="view-on-earth" class="earth-action" href="./index.html?optimizer=1">Xem phương pháp này trên Trái Đất 3D</a><button id="compare" class="secondary" disabled>So sánh đủ 12 phương pháp</button><p class="hint">Tìm phương án chưa làm giảm pin. Mạng tạm dừng trong lúc tính. Bảng kết quả bên dưới dùng chính yêu cầu ở đây.</p></section>
+
+    </aside>
+    <div class="visuals">
+      <section id="metrics" class="metrics" aria-label="Kết quả phương án"></section>
+      <section class="card view-card"><div class="section-head"><div><span class="step">CÙNG VỊ TRÍ · CÙNG PIN · CÙNG MẠNG</span><h2>Quan sát mạng</h2></div><div class="tabs"><button id="view-logical" class="selected">Sơ đồ dễ đọc</button><button id="view-globe">Trái Đất 3D</button></div></div>
+        <div class="view-toolbar"><span id="counts">—</span><label class="check"><input id="show-links" type="checkbox"> Tất cả liên kết</label><label class="check"><input id="show-pheromone" type="checkbox"> Pheromone ACO (sơ đồ)</label></div>
+        <div id="logical-view"><svg id="network-map" viewBox="0 0 1000 620" role="img" aria-label="Sơ đồ các nút, đường truyền và pin"></svg></div>
+        <div id="globe-view" hidden><div id="globe-canvas"></div><p id="globe-status" class="hint">Đang tải cảnh 3D…</p><button id="globe-fit" class="floating">Xem toàn mạng</button></div>
+        <div class="legend"><span class="ground">● Trạm</span><span class="uav">● UAV</span><span class="leo">● LEO</span><span class="meo">● MEO</span><span class="geo">● GEO</span><span>Đường dày = nhiều băng thông · xanh → đỏ = pin giảm</span></div>
+        <details class="allocation-detail"><summary>Phân bổ trên từng chặng</summary><p id="refinement-note" class="hint"></p><div class="table-wrap"><table><thead><tr><th>Từ</th><th>Đến</th><th>Công suất (W)</th><th>Băng thông (MHz)</th><th>Tốc độ (Mbps)</th></tr></thead><tbody id="allocation-body"></tbody></table></div></details><p id="route" class="route">Đường truyền sẽ xuất hiện sau khi tìm phương án.</p><p id="playback-status" class="hint">Nhấn một nút mạng để xem pin và tài nguyên. Chấm dữ liệu chỉ chạy sau khi thực hiện truyền.</p>
+      </section>
+
+            <section id="execution" class="card execution-card"><span class="step">03 / THỰC HIỆN</span><h2>Truyền theo phương án</h2><p id="plan-status">Chưa có phương án. Hoàn thành bước 2 trước.</p><div class="execution-actions"><button id="transmit" class="primary" disabled>▶ Truyền dữ liệu & cập nhật pin</button><div class="two"><button id="next-request" class="secondary" disabled>Gửi yêu cầu tiếp</button><button id="export" class="secondary" disabled>Xuất JSON</button></div></div><div id="battery-result" hidden><h3>Pin trong lượt vừa truyền</h3><p id="battery-summary" class="hint"></p><div class="table-wrap"><table><thead><tr><th>Nút trên tuyến</th><th>Trước (J)</th><th>Sau (J)</th><th>Đã dùng (J)</th></tr></thead><tbody id="battery-changes"></tbody></table></div></div><label class="check"><input id="auto-requests" type="checkbox"> Tự tìm và truyền yêu cầu tiếp (tối đa 20)</label><p class="hint">Các yêu cầu chạy nối tiếp. Tự chạy dừng khi thiếu tài nguyên hoặc bạn bỏ chọn.</p></section>
+      <div class="panels"><section class="card"><h2 id="node-title">Thông tin nút mạng</h2><div id="node-detail"><p>Chọn nút trên sơ đồ hoặc cảnh 3D.</p></div></section><section class="card"><h2>Diễn biến Cost trong quá trình tìm kiếm</h2><label class="check"><input id="chart-zero" type="checkbox"> Trục Cost bắt đầu từ 0</label><p id="convergence-summary" class="hint"></p><svg id="convergence" viewBox="0 0 600 220" role="img" aria-label="Biểu đồ hội tụ Cost"></svg><p id="chart-note" class="hint">Xanh: tìm tuyến ACO · tím: gộp gợi ý AI · vàng: tinh chỉnh PSO. Các giai đoạn nối tiếp nhau; đường thể hiện Cost hợp lệ tốt nhất đang được giữ. Trục dọc có thể phóng đại theo dải số liệu.</p></section></div>
+    </div>
+  </div>
+  <section id="comparison" class="card"><div class="section-head"><div><span class="step">KIỂM CHỨNG · CÙNG YÊU CẦU VÀ TRẠNG THÁI</span><h2>So sánh các phương pháp</h2></div><span id="comparison-note" class="hint">Chưa chạy so sánh.</span></div><div class="table-wrap"><table><thead><tr><th>Phương pháp</th><th>Đáp ứng</th><th>Cost ↓</th><th>Δ Cost so với ACO (%)</th><th>Độ trễ (s) ↓</th><th>Mbps</th><th>Năng lượng (J)</th><th>Hop</th><th>Thời gian tính (ms)</th></tr></thead><tbody id="comparison-body"></tbody></table></div></section>
+
+  <section id="traffic-forecast-section" class="card">
+    <div class="section-head">
+      <div>
+        <span class="step">LƯU LƯỢNG THEO THỜI GIAN · GÓI TIN ĐẾN MỖI GIÂY</span>
+        <h2>Dự báo lưu lượng đến (Mbps)</h2>
+      </div>
+      <span id="forecast-status" class="hint">Chọn nút để xem dự báo.</span>
+    </div>
+    <div class="forecast-controls">
+      <label>Chọn nút mạng
+        <select id="forecast-node-select">
+          <option value="">— Chọn nút —</option>
+        </select>
+      </label>
+      <p id="forecast-advice" class="load-advice" role="status"></p><span id="forecast-trend-badge" class="trend-badge" hidden></span>
+      <label>Đối chiếu dự báo đã phát trước<select id="forecast-horizon"><option value="1">1 giây</option><option value="6">6 giây</option></select></label><button id="simulate-traffic" class="secondary" type="button">Quan sát 30 giây · có trừ điện nền</button><button id="observe-traffic" class="secondary" type="button" title="Tiến một giây mô phỏng, trừ điện nền và bỏ phương án cũ">Quan sát thêm 1 giây</button>
+    </div>
+    <div class="forecast-chart-wrap">
+      <svg id="forecast-chart" viewBox="0 0 700 240" role="img" aria-label="Biểu đồ lịch sử và dự báo lưu lượng băng thông"></svg>
+    </div>
+    <div class="forecast-legend">
+      <span class="legend-history">── Lịch sử quan sát</span>
+      <span class="legend-forecast">╌╌ Dự báo đã phát cho các mẫu nay đã quan sát</span>
+      <span class="legend-ci">● Dự báo 6 giây sắp tới</span>
+    </div>
+    <p class="hint" id="forecast-hint">Nguồn lưu lượng tổng hợp tạo số gói đến biến thiên theo giây; mỗi gói 64 KiB. Dự báo chỉ đọc các mẫu đã quan sát, được đối chiếu khi mẫu tương lai xuất hiện. Không đổi là một đối chứng hợp lệ nên có thể cho đường phẳng. Lưu lượng đến khác với tốc độ truyền đầu cuối của yêu cầu. Phân bổ dùng dự báo 1 giây; mốc 6 giây để đánh giá xa hơn. Truyền một khối giữ tải nền trong lượt đó; nguồn lưu lượng tiến sau khi hoàn tất và khi quan sát thời gian mới.</p>
+  </section>
+
+  <section class="card"><h2>Nhật ký truyền và tuổi thọ mạng</h2><p id="lifetime">Chưa phục vụ yêu cầu nào.</p><div class="table-wrap"><table><thead><tr><th>Lượt</th><th>Phương pháp</th><th>Đường đi</th><th>Dữ liệu (MB)</th><th>Thời lượng (s)</th><th>Năng lượng (J)</th></tr></thead><tbody id="transfers-body"></tbody></table></div></section>
+  <details class="card assumptions"><summary>Mô hình tính toán và giả định</summary><p>Lưu lượng nền được tạo từ các gói đến tổng hợp, gói 64 KiB. Quy chiếu 2 bit/s/Hz dùng để đổi lưu lượng nền thành băng thông dành trước; đây không phải tốc độ Shannon đầu cuối của tuyến. Nguồn và mô hình dự báo độc lập; dự báo không đọc trước số gói tương lai.</p><p>Tốc độ Shannon AWGN tại 2.4 GHz, nhiễu 290 K và noise figure 5 dB. Gain anten tổng hợp: trạm–UAV 4 dB, UAV–vệ tinh 50 dB (regional) / 56 dB (distributed), liên vệ tinh 60 dB. Tham số tổng hợp phục vụ nghiên cứu; chưa có fading, nhiễu đồng kênh, sạc mặt trời hoặc năng lượng bay UAV.</p><p>Mỗi yêu cầu là một khối dữ liệu, truyền lần lượt qua các chặng, không chồng lấn yêu cầu. Băng thông dành trước trên các cạnh kề một nút không vượt ngân sách nút. Kênh được coi gần như cố định trong một yêu cầu; khi thực hiện sẽ kiểm tra vùng phủ theo thời gian mỗi tối đa 0.5 giây. Tốc độ đầu cuối = dữ liệu / tổng thời gian truyền và truyền lan, không lấy riêng cạnh cổ chai.</p><p>Pin LEO = 3× pin UAV; MEO = 10×; GEO và trạm dùng nguồn không giới hạn theo giả định. Ngưỡng pin áp dụng sau truyền. Các thời điểm chạm ngưỡng được ghi tại cuối khoảng cập nhật.</p><p>ACO dùng seed khởi tạo từ widest/energy, ρ=0.3, α=1, β=2. ACO + PSO tối ưu tối đa ba đường ứng viên; không chạy PSO bên trong mọi bước của kiến và không bảo đảm tối ưu toàn cục. PSO: w=0.7, c1=c2=1.5. EnergyCost = w·E/E_ref + (1−w)·max(ΔE_i/E_i); Cost = (1−l)·EnergyCost + l·duration/(D/R_requested), E_ref=max(1,D/R_yêu_cầu·20).</p></details>
+</main><footer>SAGIN Network Lab · Mô hình tổng hợp, dữ liệu tính từ máy chủ Python · <a href="./index.html">Trái Đất 3D</a></footer>
+<script type="module" src="./js/optimizer/app.js"></script>
+</body></html>

@@ -1,0 +1,2 @@
+# The application, optimizer and AI use the Python standard library only.
+# Optional legacy demos: pip install -r examples/requirements.txt

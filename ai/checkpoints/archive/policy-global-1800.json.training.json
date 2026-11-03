@@ -1,0 +1,77 @@
+[
+  {
+    "epoch": 1,
+    "phase": "imitation",
+    "validation_reward": -0.23115498971347148
+  },
+  {
+    "epoch": 2,
+    "phase": "imitation",
+    "validation_reward": -0.24437267416993733
+  },
+  {
+    "epoch": 3,
+    "phase": "imitation",
+    "validation_reward": -0.22519581224538132
+  },
+  {
+    "epoch": 4,
+    "phase": "imitation",
+    "validation_reward": -0.21668418359358016
+  },
+  {
+    "epoch": 5,
+    "phase": "imitation",
+    "validation_reward": -0.19183298129384443
+  },
+  {
+    "epoch": 6,
+    "phase": "imitation",
+    "validation_reward": -0.18563802895762266
+  },
+  {
+    "epoch": 7,
+    "phase": "imitation",
+    "validation_reward": -0.158325854662121
+  },
+  {
+    "epoch": 8,
+    "phase": "imitation",
+    "validation_reward": -0.14813579026735177
+  },
+  {
+    "epoch": 9,
+    "phase": "imitation",
+    "validation_reward": -0.18570425896267317
+  },
+  {
+    "epoch": 10,
+    "phase": "imitation",
+    "validation_reward": -0.15203970913190795
+  },
+  {
+    "epoch": 11,
+    "phase": "reinforce",
+    "validation_reward": -0.1698356981752587
+  },
+  {
+    "epoch": 12,
+    "phase": "reinforce",
+    "validation_reward": -0.15174868809828623
+  },
+  {
+    "epoch": 13,
+    "phase": "reinforce",
+    "validation_reward": -0.1697632093746695
+  },
+  {
+    "epoch": 14,
+    "phase": "reinforce",
+    "validation_reward": -0.1439093324332559
+  },
+  {
+    "epoch": 15,
+    "phase": "reinforce",
+    "validation_reward": -0.15147422821127846
+  }
+]

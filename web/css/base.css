@@ -1,0 +1,43 @@
+/* A shared, quiet mission-control theme for the globe and workbench. */
+:root{color-scheme:dark;--ui-accent:#9de8d2;--ui-text:#e6eef3;--ui-muted:#a1b5c5;--ui-border:#ffffff18;--ui-font:"Segoe UI",system-ui,-apple-system,sans-serif}
+html{scroll-behavior:smooth;scrollbar-color:#416071 #0a1520}body{font-family:var(--ui-font)}
+button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button,select,summary{cursor:pointer}
+button,input,select,a{transition:background-color .18s,border-color .18s,box-shadow .18s}
+:focus-visible{outline:2px solid var(--ui-accent);outline-offset:4px}select option{background:#101e2a;color:var(--ui-text)}
+/* Earth chrome leaves the scene in focus. */
+#topbar{background:linear-gradient(180deg,#06101ef2,#06101ec9);border-color:var(--ui-border);gap:22px}
+#topbar .logo{color:#e2f9f1;text-shadow:none;font-size:15px;letter-spacing:2.5px}
+#topbar .subtitle{color:var(--ui-muted);font:11px/1.7 var(--ui-font)}
+#clock{color:var(--ui-accent);font-size:12px;letter-spacing:1px}
+.topbar-network-link{background:#9de8d210;border-color:#9de8d23d;color:#c0f6e5;border-radius:10px;font:500 12px/1.6 var(--ui-font)}
+#stats-panel,#legend,#sim-clock,#node-info{background:#091622e8;border-color:var(--ui-border);box-shadow:0 16px 45px #0003}
+#stats-panel h3{font:600 11px/1.7 var(--ui-font);letter-spacing:.4px;color:#c5d9e4}
+.stat-label,.legend-text{font-family:var(--ui-font);letter-spacing:0;color:var(--ui-muted)}
+.stat-value{font-variant-numeric:tabular-nums}
+.earth-optimizer-launch{background:#9de8d2;color:#092b27;border:1px solid #b9f7e4;box-shadow:0 8px 32px #0005;min-height:48px;font:600 12px/1.6 var(--ui-font)}
+.earth-optimizer-launch:hover{background:#c1f6e6}
+#earth-optimizer{padding:22px;background:#0a1724f5;border-color:#ffffff20;box-shadow:0 22px 70px #0006;font:12px/1.75 var(--ui-font);scrollbar-width:thin;scrollbar-gutter:stable;overscroll-behavior:contain}
+.eo-head{padding-bottom:18px;border-bottom:1px solid var(--ui-border);margin-bottom:18px}
+.eo-head small{color:var(--ui-accent);letter-spacing:1.4px;font-size:9px}.eo-head h2{font-size:21px;letter-spacing:-.7px;margin-top:5px}
+#earth-optimizer button,#earth-optimizer input,#earth-optimizer select{min-height:44px;padding:10px 11px;border-radius:9px;border-color:#ffffff23;background:#111f2d}
+#earth-optimizer label{color:#b8cbd8;gap:7px;font-size:11px}
+#earth-optimizer button:hover:enabled{background:#1c3241;border-color:#9de8d277}
+#earth-optimizer #eo-close{min-width:36px;min-height:36px;padding:4px;font-size:20px}
+#earth-optimizer #eo-network-form{background:#ffffff03;padding:14px;border-color:var(--ui-border);gap:12px}
+#earth-optimizer form{gap:16px;margin:20px 0}.eo-two{gap:12px;margin:0}#earth-optimizer>.eo-two{margin:12px 0}
+#earth-optimizer .eo-primary{background:var(--ui-accent);border-color:var(--ui-accent);color:#092b27;font-weight:700}
+#earth-optimizer .eo-primary:hover:enabled{background:#c1f6e6}
+#eo-message{border:1px solid #9de8d22b;background:#9de8d20d;padding:12px}
+#eo-explain,.eo-note{color:var(--ui-muted);line-height:1.8}
+#earth-optimizer details{border-block:1px solid var(--ui-border);padding:12px 0}#earth-optimizer summary{color:#c0d2df}
+#earth-optimizer details[open] .eo-two{margin-top:12px}
+#earth-optimizer .eo-check{min-height:32px;line-height:1.7;color:var(--ui-muted)}
+#earth-optimizer .eo-check input{min-height:16px;width:16px;height:16px;flex-shrink:0;padding:0}
+#eo-route-summary{box-shadow:0 10px 35px #0005;border-color:#ffffff26;background:#0a1724f2}
+#eo-hop-list button{min-height:38px;font-family:var(--ui-font)}.earth-network-label{box-shadow:0 4px 12px #0004}
+#sim-clock{gap:12px;padding:10px 16px}#sim-speed-sel{min-height:30px;min-width:64px;color:#c2f4e4;font:11px var(--ui-font)}
+.sc-btn{min-height:30px;min-width:32px}.ctrl-btn{font-family:var(--ui-font);letter-spacing:0}
+#sim-hour-slider{min-height:0}#sim-clock-date{min-height:30px}input[type=checkbox]{min-height:0}input[type=range]{min-height:0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.eo-network-settings{margin:0!important;border:0!important;padding:0!important}.eo-network-settings>summary{padding:4px 0}.eo-network-settings[open]>label{margin-top:14px}#earth-optimizer #eo-network-form{margin-block:12px}#topbar .topbar-network-link{white-space:nowrap}@media(max-width:850px){#topbar{flex-wrap:wrap}.scene-note{display:none}}

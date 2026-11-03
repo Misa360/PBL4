@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAGIN Lab | Trái Đất 3D</title>
+  <link rel="stylesheet" href="./css/earth.css">
+  <link rel="stylesheet" href="./css/base.css">
+</head>
+<body>
+
+
+<div id="loading-overlay">
+  <div id="loading-title">SAGIN NETWORK</div>
+  <div id="loading-sub">LOADING EARTH TEXTURES ...</div>
+  <div id="loading-bar-wrap"><div id="loading-bar"></div></div>
+  <div id="loading-pct">0%</div>
+</div>
+
+<!-- scanline đã tắt để không phủ vạch lên Trái Đất -->
+<!-- <div id="scanline"></div> -->
+<div id="canvas-container"></div>
+
+<div id="hud">
+  <!-- Top bar -->
+  <div id="topbar">
+    <div>
+      <div class="logo">⬡ SAGIN NETWORK</div>
+      <div class="subtitle">Trái Đất 3D · vệ tinh · UAV · trạm mặt đất</div>
+    </div>
+    <a href="./network.html" class="topbar-network-link">Tối ưu mạng ACO / PSO <span aria-hidden="true">↗</span></a>
+    <div id="scene-note" class="scene-note">Cảnh minh họa · đang tải các đối tượng</div>
+
+    <div id="clock">00:00:00 UTC</div>
+  </div>
+
+  <!-- Stats panel -->
+  <div id="stats-panel">
+    <h3>Cảnh minh họa · số đối tượng</h3>
+
+    <div class="stat-row">
+      <span class="stat-label">Vệ tinh (LEO / MEO / GEO)</span>
+      <span class="stat-value" id="v-sat" style="color:#00e5ff">0</span>
+    </div>
+    <div class="stat-bar"><div class="stat-bar-fill" id="bar-sat" style="background:#00e5ff;width:0%"></div></div>
+
+    <div class="stat-row">
+      <span class="stat-label">UAV minh họa</span>
+      <span class="stat-value" id="v-uav" style="color:#f59e0b">0</span>
+    </div>
+    <div class="stat-bar"><div class="stat-bar-fill" id="bar-uav" style="background:#f59e0b;width:0%"></div></div>
+
+    <div class="stat-row">
+      <span class="stat-label">Trạm mặt đất</span>
+      <span class="stat-value" id="v-gs" style="color:#10b981">0</span>
+    </div>
+    <div class="stat-bar"><div class="stat-bar-fill" id="bar-gs" style="background:#10b981;width:0%"></div></div>
+  </div>
+
+  <!-- Legend -->
+  <div id="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#00e5ff;box-shadow:0 0 8px #00e5ff;border-radius:4px"></div><span class="legend-text">Vệ tinh LEO</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7c3aed;box-shadow:0 0 8px #7c3aed;border-radius:4px"></div><span class="legend-text">Vệ tinh MEO</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f43f5e;box-shadow:0 0 8px #f43f5e;border-radius:4px"></div><span class="legend-text">Vệ tinh GEO</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#10b981;box-shadow:0 0 8px #10b981;border-radius:4px"></div><span class="legend-text">Trạm mặt đất</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;box-shadow:0 0 8px #f59e0b;border-radius:4px"></div><span class="legend-text">UAV minh họa</span></div>
+  </div>
+
+  <!-- Controls -->
+  <button id="eo-open" class="earth-optimizer-launch">Chọn phương pháp & chạy trên Trái Đất 3D</button>
+  <section id="earth-optimizer" hidden aria-label="Tối ưu mạng trên Trái Đất 3D">
+    <div class="eo-head"><div><small>THUẬT TOÁN TRÊN CẢNH 3D</small><h2>Đường truyền & pin</h2></div><button id="eo-close" type="button" title="Quay về cảnh tự do">×</button></div>
+    <p id="eo-message" role="status">Đọc trạng thái mạng…</p>
+    <form id="eo-network-form" aria-label="Đổi quy mô mạng trên cảnh 3D"><details class="eo-network-settings"><summary>Thiết lập mạng & tài nguyên</summary>
+      <label>Quy mô mạng<select name="size"><option value="small">Nhỏ · 4 trạm G1–G4</option><option value="full">Toàn cầu · 10 trạm G1–G10</option></select></label>
+      <p class="hint">Bố trí trạm: <strong>Phân bố rộng</strong></p><label>Chùm vệ tinh<select name="constellation"><option value="compact">Gọn</option><option value="balanced" selected>Cân bằng</option><option value="dense">Tăng phủ</option></select></label>
+      <label>Mức pin ban đầu<select name="battery_profile"><option value="mixed">Yếu / trung bình / mạnh</option><option value="full">Tất cả đầy pin</option><option value="weak">Tất cả pin yếu</option><option value="medium">Tất cả pin trung bình</option><option value="strong">Tất cả pin mạnh</option></select></label><label>Tải băng thông nền<select name="load_profile"><option value="mixed">Có nút rảnh / vừa / bận</option><option value="idle">Tất cả rảnh</option><option value="busy">Tải cao</option></select></label><label>Dự báo tải nền<select name="forecast_load"><option value="on">Bật dự báo để chừa băng thông</option><option value="off">Chỉ dùng tải hiện tại</option></select></label><label>Seed trạng thái<input name="state_seed" type="number" min="0" max="2147483647" value="42" required></label><p id="eo-network-info" class="eo-note">Danh sách trạm gửi/nhận phụ thuộc mạng đang dùng.</p>
+      <button id="eo-apply-network" type="submit">Tạo lại mạng theo lựa chọn</button>
+      <p class="eo-note">Tạo lại mạng sẽ đặt lại pin và lịch sử truyền dùng chung với trang thiết lập.</p>
+    </details></form>
+    <form id="eo-form">
+      <label>Phương pháp<select name="method"><optgroup label="Tối ưu tài nguyên"><option value="aco" selected>ACO</option><option value="aco_pso">ACO + PSO</option><option value="ai_aco_pso">AI + ACO + PSO</option><option value="widest_pso">Widest + PSO</option><option value="energy_pso">Energy + PSO</option></optgroup><optgroup label="Đối chứng định tuyến"><option value="random">Random</option><option value="greedy">Greedy</option><option value="min_hops">BFS - ít chặng nhất</option><option value="shortest_distance">Dijkstra - khoảng cách</option><option value="min_delay">Dijkstra - độ trễ</option><option value="widest">Widest path</option><option value="energy">Energy path</option></optgroup></select></label>
+      <p id="eo-explain"></p>
+      <div class="eo-two"><label>Trạm gửi<select name="source"></select></label><label>Trạm nhận<select name="target"></select></label></div>
+      <div class="eo-two"><label>Dữ liệu (MB)<input name="data_mb" type="number" min="0.001" max="10" step="0.001" value="0.1" required></label><label>Tốc độ cần (Mbps)<input name="required_mbps" type="number" min="0.001" max="50" step="0.001" value="0.2" required></label></div>
+      <details><summary>Seed và trọng số</summary><div class="eo-two"><label>Seed<input name="seed" type="number" min="0" max="2147483647" value="42" required></label><label>Trọng số năng lượng<input name="energy_weight" type="number" min="0" max="1" step="0.05" value="0.5" required></label><label>Trọng số độ trễ (0: pin; 1: độ trễ)<input name="latency_weight" type="number" min="0" max="1" step="0.05" value="0.5" required></label></div></details>
+      <button id="eo-optimize" class="eo-primary" type="submit">✦ Chạy phương pháp trên 3D</button>
+    </form>
+    <div class="eo-two"><button id="eo-preview" disabled>Xem thử đường đi</button><button id="eo-transmit" disabled>Truyền & trừ pin</button></div>
+    <div class="eo-two"><button id="eo-focus">Cận cảnh đường đi</button><button id="eo-all">Xem toàn mạng</button></div>
+    <label class="eo-check"><input id="eo-pheromone" type="checkbox"> Hiện các liên kết ACO ưu tiên</label>
+    <label class="eo-check"><input id="eo-route-only" type="checkbox" checked> Chỉ hiện nút trên đường đã chọn</label>
+    <label class="eo-check"><input id="eo-follow-hop" type="checkbox" checked> Theo dõi cận cảnh từng chặng khi xem thử</label>
+    <p id="eo-route">Chưa chọn đường truyền.</p><p id="eo-result"></p><p id="eo-node">Nhấn nhãn nút để xem pin.</p>
+    <p id="eo-history"></p><a href="./network.html#comparison">Thiết lập mạng & bảng kết quả →</a>
+    <p class="eo-note">Nút và pin lấy từ máy chủ. Chấm chuyển động được phát chậm theo đường đã tính; xem thử không tiêu thụ pin.</p>
+  </section>
+  <section id="eo-route-summary" hidden aria-label="Toàn bộ tuyến gửi đến nhận">
+    <strong id="eo-route-title">Tuyến truyền</strong><div id="eo-hop-list"></div>
+    <p>Nhấn Xem thử để theo dõi từng chặng, hoặc nhấn tên nút để cận cảnh. Vị trí nút vẫn theo mô hình.</p>
+  </section>
+  <svg id="eo-label-lines" aria-hidden="true"></svg>
+  <div id="controls">
+    <button class="ctrl-btn active" id="btn-auto">⟳ Tự xoay</button>
+    <button class="ctrl-btn active" id="btn-orbits">◎ Quỹ đạo</button>
+    <button class="ctrl-btn" id="btn-links">— Đường nối minh họa</button>
+    <button class="ctrl-btn active" id="btn-atmo">◉ Khí quyển</button>
+  </div>
+
+
+  <!-- SimClock: thanh pill ngang gọn -->
+  <div id="sim-clock">
+    <span id="sim-clock-display">2024-01-01 12:00:00 UTC</span>
+    <div class="sc-sep"></div>
+    <input type="range" id="sim-hour-slider" min="0" max="24" step="0.01" value="12" title="Kéo để tua giờ">
+    <input type="date" id="sim-clock-date" title="Chọn ngày">
+    <div class="sc-sep"></div>
+    <button class="sc-btn active" id="sc-playpause">⏸</button>
+    <button class="sc-btn" id="sc-now" title="Về giờ thực">⟳</button>
+    <select id="sim-speed-sel" title="Tốc độ mô phỏng">
+      <option value="1" selected>1×</option>
+      <option value="60">60×</option>
+      <option value="600">600×</option>
+      <option value="3600">3600×</option>
+      <option value="21600">21600×</option>
+    </select>
+  </div>
+
+  <!-- Eclipse HUD (top right, below legend) -->
+  <div id="eclipse-hud">
+    <h3>⬡ ECLIPSE STATUS</h3>
+    <div id="eclipse-summary">In shadow: 0 / 0</div>
+    <div id="eclipse-list"></div>
+  </div>
+
+
+
+  <div id="node-info">
+    <div id="node-info-close" onclick="document.getElementById('node-info').style.display='none'">✕</div>
+    <div id="ni-title">Đối tượng minh họa</div>
+    <div id="ni-subtitle"></div>
+    <div id="ni-status">Chưa liên kết với bộ mô phỏng gói tin</div>
+    <div class="ni-row"><span class="ni-label">Độ cao mô hình</span><span class="ni-value" id="ni-alt">—</span></div>
+    <p class="scene-note">Pin, băng thông, bộ đệm và hoạt động chuyển tiếp thực tế nằm ở trang mô phỏng mạng. Các đối tượng trong cảnh này thuộc cấu hình minh họa riêng.</p>
+    <a class="network-link" href="./network.html">Mở bản tối ưu ACO / PSO →</a>
+  </div>
+  <div id="tooltip"></div>
+  <div id="bottom-bar"></div>
+</div>
+
+<!-- Three.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

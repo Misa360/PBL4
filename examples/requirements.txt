@@ -1,0 +1,6 @@
+# Optional legacy demos only. Not needed by server.py, optimizer or AI.
+numpy
+pandas
+networkx
+matplotlib
+vpython

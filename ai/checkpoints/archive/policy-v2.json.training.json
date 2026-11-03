@@ -1,0 +1,117 @@
+[
+  {
+    "epoch": 1,
+    "phase": "imitation",
+    "validation_reward": -0.15668780052850165
+  },
+  {
+    "epoch": 2,
+    "phase": "imitation",
+    "validation_reward": -0.17688572279269663
+  },
+  {
+    "epoch": 3,
+    "phase": "imitation",
+    "validation_reward": -0.17629130481543534
+  },
+  {
+    "epoch": 4,
+    "phase": "imitation",
+    "validation_reward": -0.15629055866805558
+  },
+  {
+    "epoch": 5,
+    "phase": "imitation",
+    "validation_reward": -0.15587062549402156
+  },
+  {
+    "epoch": 6,
+    "phase": "imitation",
+    "validation_reward": -0.15564877588607617
+  },
+  {
+    "epoch": 7,
+    "phase": "imitation",
+    "validation_reward": -0.15568704117971818
+  },
+  {
+    "epoch": 8,
+    "phase": "imitation",
+    "validation_reward": -0.15591882532798185
+  },
+  {
+    "epoch": 9,
+    "phase": "imitation",
+    "validation_reward": -0.1559616056903678
+  },
+  {
+    "epoch": 10,
+    "phase": "imitation",
+    "validation_reward": -0.15507330381336096
+  },
+  {
+    "epoch": 11,
+    "phase": "imitation",
+    "validation_reward": -0.15496174163781434
+  },
+  {
+    "epoch": 12,
+    "phase": "imitation",
+    "validation_reward": -0.155025192337927
+  },
+  {
+    "epoch": 13,
+    "phase": "imitation",
+    "validation_reward": -0.1752760654176586
+  },
+  {
+    "epoch": 14,
+    "phase": "imitation",
+    "validation_reward": -0.17589304714893636
+  },
+  {
+    "epoch": 15,
+    "phase": "imitation",
+    "validation_reward": -0.17563653436572438
+  },
+  {
+    "epoch": 16,
+    "phase": "reinforce",
+    "validation_reward": -0.1749587157600243
+  },
+  {
+    "epoch": 17,
+    "phase": "reinforce",
+    "validation_reward": -0.17509492444921188
+  },
+  {
+    "epoch": 18,
+    "phase": "reinforce",
+    "validation_reward": -0.15427103079702514
+  },
+  {
+    "epoch": 19,
+    "phase": "reinforce",
+    "validation_reward": -0.15300105176742557
+  },
+  {
+    "epoch": 20,
+    "phase": "reinforce",
+    "validation_reward": -0.15332666823087135
+  },
+  {
+    "epoch": 21,
+    "phase": "reinforce",
+    "validation_reward": -0.1540472955484708
+  },
+  {
+    "epoch": 22,
+    "phase": "reinforce",
+    "validation_reward": -0.15379319790822318
+  },
+  {
+    "epoch": 23,
+    "phase": "reinforce",
+    "validation_reward": -0.13258912373862855
+  }
+]
